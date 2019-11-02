@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace EXTRA_uses
+{
+   
+     
+    public partial class Form1 : Form
+
+    {
+        string[] names = { "Ehude", "Nii", "Mary", "Sam", "Kwabena", "Ehude" };
+        public Form1()
+        {
+            InitializeComponent();
+            cbxnames.DataSource = names;
+            listBoxNames.DataSource = names;
+            chklstbxNames.DataSource = names;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cbxnames.Items.Add(txtbxNames.Text);
+            listBoxNames.Items.Add(txtbxNames.Text);
+            chklstbxNames.Items.Add(txtbxNames.Text);
+        }
+
+        private void cbxnames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            FileDialog objfile = new OpenFileDialog();
+            if (objfile.ShowDialog() == DialogResult.OK)
+            {
+                string imgname = objfile.FileName;
+                Bitmap bmp = new Bitmap(imgname);
+                pictureBox.Image = bmp;
+            } 
+        }
+    }
+}
